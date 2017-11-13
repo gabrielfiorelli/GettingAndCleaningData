@@ -43,9 +43,21 @@ Data set: https://d396qusza40orc.cloudfront.net/getdata%2Fprojectfiles%2FUCI%20H
 Analysis Script
 ---------------
 
-`run_analysis.R`: this script takes the input data, and creates the output file 
+`run_analysis.R`: this script takes the input data, and creates the output file.
 
-The script first downloads and unzips the dataset from the above url. The script then reads the test and training sets, merges them (1).  It filters down the mean and std features, and selects only these (2) It merges in the activity names for the activities (3) It then builds up a series of labeled columns to represent single variables from the feature. (4)  It calculates the average of each variable and writes out this data set to `tidy.txt` (5)
+After download and unzip the file from the link above:
+
+1. Merge the test and training sets to create one data set.
+
+2. Use the `features.txt` to identify the activity names and makes the data easir to human reading.
+
+3. Use the `activity_labels.txt` to identify and select just the measurements that represents mean or standart deviation.
+
+4. Merge the features, activity and subject in one raw dataset, with features names and activity labels. That content is saved at `dataset.txt`.
+
+5. Grouped the data using subject and activity allowing group computations.
+
+6. Used the grouped information to calculate the average for each pair of dimensions (Activity-Subject). That content is saved at `dataset_summarized.txt`.
 
 
 Outputs
